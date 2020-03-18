@@ -32,15 +32,18 @@ const Title = styled.h1`
   font-size: 60px;
   font-weight: 600;
   margin-bottom: 20px;
+  color: black;
 `;
 const Subtitle = styled.h3`
   font-size: 35px;
+  color: black;
 `;
 const Loading = styled.div`
   font-size: 18px;
   opacity: 0.5;
   font-weight: 500;
   margin-top: 10px;
+  color: black;
 `;
 
 const Movies = styled.div`
@@ -61,13 +64,11 @@ export default () => {
         <Subtitle>I love GraphQL</Subtitle>
       </Header>
       {loading && <Loading>Loading...</Loading>}
-      {!loading && data.movies && (
-        <Movies>
-          {data.movies.map(m => (
-            <Movie key={m.id} id={m.id} bg={m.medium_cover_image} />
-          ))}
-        </Movies>
-      )}
+      <Movies>
+        {data?.movies?.map(m => (
+          <Movie key={m.id} id={m.id} bg={m.medium_cover_image} />
+        ))}
+      </Movies>
     </Container>
   );
 };
